@@ -1,0 +1,8 @@
+- composer install / composer update
+- cp .env.example .env
+- php artisan key:generate
+- setup .env
+- php artisan migrate
+- php artisan db:seed
+- php artisan serve
+- run in chrome localhost:8000
