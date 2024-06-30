@@ -1,7 +1,6 @@
 @extends('masterFile')
 @section('content')
     <div class="row">
-
         <!-- Area Chart -->
         <div class="col-xl-8 col-lg-7">
             <div class="card shadow mb-4">
@@ -41,6 +40,7 @@
                     <div class="tab-content" id="nav-tabContent">
                         <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
                             aria-labelledby="nav-home-tab">
+                            <br>
                             <div class="container">
                                 <button class="btn btn-primary" id="checkInBtn">Check In</button>
                                 <button class="btn btn-primary" id="checkOutBtn">Check Out</button>
@@ -216,5 +216,6 @@
             performCheck('/check-out');
         });
     });
-    </script>
+</script>
+
 @endsection

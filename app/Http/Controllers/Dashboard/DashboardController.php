@@ -37,16 +37,16 @@ class DashboardController extends Controller
     {
         return Kehadiran::selectRaw('count(status_presensi) as ' . $nama)
             ->where('status_presensi', 'like', $status)
-            ->where('waktu_presensi', 'like', '2023-' . $this->convertMonth() . '-%')
+            ->where('check_in', 'like', '2023-' . $this->convertMonth() . '-%')
             ->groupBy('user_id')
-            ->orderBy('waktu_presensi', 'asc')
+            ->orderBy('check_in', 'asc')
             ->get();
     }
     public function getTotalKehadiranKaryawan($status)
     {
         return Kehadiran::where('user_id', '=', getUserId())
             ->where('status_presensi', '=', $status)
-            ->where('waktu_presensi','like','%-'.$this->convertMonth().'-%')
+            ->where('check_in','like','%-'.$this->convertMonth().'-%')
             ->get();
     }
     public function dasborKaryawan()
@@ -58,8 +58,8 @@ class DashboardController extends Controller
         $cuti = is_null($this->getTotalKehadiranKaryawan('cuti')) == true ? [] : $this->getTotalKehadiranKaryawan('cuti');
         $izin_cuti = Kehadiran::where('user_id', '=', getUserId())
             ->whereIn('status_presensi', ['izin', 'cuti'])
-            ->where('waktu_presensi','like','%-'.$this->convertMonth().'-%')
-            ->orderBy('waktu_presensi', 'asc')
+            ->where('check_in','like','%-'.$this->convertMonth().'-%')
+            ->orderBy('check_in', 'asc')
             ->get();
         $title = 'Dashboard ' . Auth::user()->name;
         $set_bulan = $this->getActiveMonth();

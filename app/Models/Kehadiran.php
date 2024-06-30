@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Kehadiran extends Model
 {
     use HasFactory;
-    protected $table = "kehadiran";
+    protected $table = "absensis";
 
     protected $guarded =[];
     public $timestamps = true;

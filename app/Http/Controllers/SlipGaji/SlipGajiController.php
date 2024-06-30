@@ -106,7 +106,7 @@ class SlipGajiController extends Controller
     {
         return Kehadiran::where('user_id', '=', getUserId())
             ->where('status_presensi', '=', $status)
-            ->where('waktu_presensi', 'like', '%-' . $this->convertMonth() . '-%')
+            ->where('check_in', 'like', '%-' . $this->convertMonth() . '-%')
             ->get();
     }
     public function slipGajiKaryawan()
